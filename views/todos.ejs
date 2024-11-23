@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDos</title>
 
-    <ul>
-        <% todos.forEach( el => { %>
-        <li class="todoItem" data-id="<%=el._id%>">
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class="del">Delete</span>
-        </li>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ToDos</title>
+    </head>
+
+    <body>
+        <ul>
+            <% todos.forEach( el=> { %>
+                <li class="todoItem" data-id="<%=el._id%>">
+                    <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                    <span class="del">Delete</span>
+                </li>
+            <% }) %>    
+        </ul>
+
+        <h2>Things left to do: <%= left %></h2>
+
+        <form action="/todos/createTodo" method="POST">
+            <input type="text" placeholder="Enter todo item" name="todoItem">
+            <input type="submit">
+        </form>
         
-        })
-    </ul>
-</head>
-<body>
-    
-</body>
+        <script src="js/main.js"></script>
+    </body>
 </html>

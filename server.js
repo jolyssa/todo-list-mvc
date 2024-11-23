@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const connectDB = require('./config/db')
 const homeRoutes = require('./routes/home')
-// const todoRoutes = require('./routes/todos')
+const todoRoutes = require('./routes/todos')
 const PORT = process.env.PORT || 4000
 const dotenv = require('dotenv')
 dotenv.config({ path: './config/.env' })
@@ -21,7 +21,7 @@ app.use(express.json())
 
 // Routes
 app.use('/', homeRoutes)
-// app.use('/todos', toDoRoutes)
+app.use('/todos', todoRoutes)
 
 // Listen for our port
 app.listen(PORT, () => {
