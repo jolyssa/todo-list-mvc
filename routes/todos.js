@@ -10,6 +10,16 @@ router.get('/', todosController.getTodos)
 // POST /createTodo
 router.post('/createTodo', todosController.createTodo)
 
+//@desc Update todo item as complete
+// PUT /markComplete
+router.put('/markComplete', todosController.markComplete)
 
+//@desc Update todo item as incompelte
+// PUT /markIncomplete
+router.put('/markIncomplete', todosController.markIncomplete)
+
+//@desc Delete todo item
+// DELETE /deleteTodo
+router.delete('/deleteTodo', todosController.deleteTodo)
 
 module.exports = router
