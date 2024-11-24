@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/style.css">
         <title>ToDos</title>
     </head>
@@ -14,7 +13,7 @@
             <% todos.forEach( el=> { %>
                 <li class="todoItem" data-id="<%=el._id%>">
                     <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
-                    <span class="del">Delete<i class="fa fa-trash" aria-hidden="true"></i></span>
+                    <span class="del">Delete</span>
                 </li>
             <% }) %>    
         </ul>
@@ -26,6 +25,6 @@
             <input type="submit">
         </form>
         
-        <script src="js/main.js"></script>
+        <script src="/css/js/main.js"></script>
     </body>
 </html>

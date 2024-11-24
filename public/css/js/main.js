@@ -19,15 +19,16 @@ Array.from(deleteBtn).forEach(el => {
 
 // ! Functions
 
-async function deleteTodo(){
-    const toId = this.parentNode.dataset.id
+// Mark complete
+async function markComplete(){
+    const todoId = this.parentNode.dataset.id
 
     try {
         const res = await fetch('todos/deleteTodo', {
             method: 'delete',
             headers: { 'Content-type': 'application/json'},
             body: JSON.stringify({
-                'todoIdFromJsFile': todoId
+                'todoIdFromJSFile': todoId
             })
         })
 
@@ -39,3 +40,41 @@ async function deleteTodo(){
         console.log(err)
     }
 }
+
+// Mark incomplete
+async function markIncomplete(){
+    const todoId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('todos/markIncomplete', {
+            method: 'put',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}
+
+// Delete item
+async function deleteTodo(){
+    const todoId = this.parentNode.dataset.id
+    try{
+        const response = await fetch('todos/deleteTodo', {
+            method: 'delete',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
+}  //ANCHOR not working
