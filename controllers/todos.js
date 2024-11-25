@@ -24,22 +24,20 @@ module.exports = {
             console.error(err)
         }
     }, 
-    markComplete: async (req, res) => {
-        try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJsFile
-
-             },{ 
+    markComplete: async (req, res)=>{
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{ 
                 completed: true 
             })
-            console.log('Marked as complete')
-            res.json('Marked complete')
-        } catch (err) {
+            console.log('Marked Complete')
+            res.json('Marked Complete')
+        }catch(err){
             console.error(err)
         }
     }, 
     markIncomplete: async (req, res) => {
         try {
-            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJsFile
+            await Todo.findOneAndUpdate({ _id: req.body.todoIdFromJSFile
 
              },{ 
                 completed: false 
@@ -53,7 +51,7 @@ module.exports = {
     deleteTodo: async (req, res) => {
         console.log(req.body.todoIdFromJsFile)
         try {
-            await Todo.findOneAndDelete({ _id: req.body.todoIdFromJsFile
+            await Todo.findOneAndDelete({ _id: req.body.todoIdFromJSFile
         })
             console.log('Delete todo item')
             res.json('Deleted todo item')
