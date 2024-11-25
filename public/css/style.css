@@ -10,3 +10,7 @@ h1 {
 .not {
     text-decoration: underline;
 }
+
+.del {
+    color: red;
+}

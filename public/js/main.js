@@ -1,7 +1,8 @@
-const deleteBtn = document.querySelector('.del')
-const todoItem = document.querySelector('span.not')
+const deleteBtn = document.querySelectorAll('.del')
+const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
 
+console.log('waosjdo')
 //! Event Listeners
 
 // Mark Complete listener
@@ -24,8 +25,8 @@ async function markComplete(){
     const todoId = this.parentNode.dataset.id
 
     try {
-        const res = await fetch('todos/deleteTodo', {
-            method: 'delete',
+        const res = await fetch('todos/markComplete', {
+            method: 'put',
             headers: { 'Content-type': 'application/json'},
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
@@ -55,6 +56,7 @@ async function markIncomplete(){
         const data = await response.json()
         console.log(data)
         location.reload()
+        
     }catch(err){
         console.log(err)
     }
